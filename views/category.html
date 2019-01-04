@@ -1,0 +1,61 @@
+{{template "header"}}
+    <title>分类 - beego博客</title>
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+          {{template "navbar" .}}
+      </div>
+    </div>
+    <p>&nbsp;</p>
+    <div class="container" >
+        <p>&nbsp;</p>
+        <h1>分类列表</h1>
+        <form action="/category" method="GET">
+          <div class="form-group">
+            <label>分类名称</label>
+            <input class="form-control" placeholder="分类名称" id="name" name="name">
+          </div>
+          <input type="hidden" name="op" id="op" value="add">
+          <button type="button" class="btn btn-default" onclick="return CheckInput()">添 加</button>
+        </form>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>名称</th>
+                    <th>文章数</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range .Categories}}
+                    <tr>
+                    <th>{{.Id}}</th>
+                    <th>{{.Title}}</th>
+                    <th>{{.TopicCount}}</th>
+                    <th>
+                        <a href="/category?op=del&id={{.Id}}">删除</a>
+                    </th>
+                    </tr>
+                {{end}}
+            </tbody>
+        </table>
+    </div>
+    <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/dist/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function CheckInput() {
+            var name = $("#name").val()
+
+            if (name.length == 0) {
+                alert("请输入分类名称")
+                return false
+            }
+            var op = $("#op").val()
+            window.location.href ="/category?op="+op+"&name="+name
+        }
+    </script>
+</body>
+</html>
