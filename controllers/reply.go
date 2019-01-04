@@ -39,5 +39,6 @@ func (this *ReplyController) Delete() {
 			beego.Error("replycount error")
 		}
 	}
+
 	this.Redirect("/topic/view/"+tid, 302)
 }
