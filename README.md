@@ -10,6 +10,6 @@
 > 特别感谢上面几位的学习资源
 
 # 简单使用说明
-- 直接在命令行下，git clone https://github.com/jiujuanfeng/beegoblog-demo.git， clone到gopath的src目录 
+- 直接在命令行下，git clone https://github.com/jiujuan/beegoblog-demo.git， clone到gopath的src目录 
 - 然后 cd 进 beegoblog-demo 目录
 - 运行 bee run， 就可以在浏览器上访问了 http://localhost:8080
